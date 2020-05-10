@@ -1,0 +1,53 @@
+<h4 [ngClass]="{lucky: message == 'Lucky'}" [ngStyle]="{color:getColor()}">
+  Discount Price is :{{discountPrice}}/{{message}}
+
+</h4>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+      <h1>{{title}}</h1>
+  </div>
+  <div class="panel-body">
+    <p>{{description}}</p>
+      <div class="table-responsive">
+        <div class="row">
+          <div class="col-md-1">
+            Filter By:
+          </div>
+          <div class="col-md-2">
+            <input type="text" [(ngModel)]="userText"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>User Search for:{{userText}}</h3>
+          </div>
+        </div>
+          <table class="table" *ngIf="restaurentList && restaurentList.length; else noData">
+              <thead>
+                  <tr>
+                    <td><button class="btn btn-success" (click)="toggleImage()">{{condition?"Hide Image":"Show Image"}}</button></td>
+
+                      <th>Name</th>
+                      <th>City</th>
+                      <th>Rating</th>
+                      <th>Price Per 2</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let restaurent of restaurentList | search:userText">
+
+                    <td><img [src]="restaurent.thumb" class="myimage"
+                      *ngIf="condition"/></td>
+                      <td>{{restaurent.name | uppercase}}</td>
+                      <td>{{restaurent.city | myupper}} </td>
+                      <td [ngStyle]="{'color':restaurent.aggregate_rating<4?'tomato':'skyblue'}"><app-star [rating]="restaurent.aggregate_rating" (ratingClicked)="dataRecieved($event)"></app-star></td>
+                      <td>{{restaurent.price | discount:discountPrice| currency:'INR'}}</td>
+                  </tr>
+              </tbody>
+          </table>
+          <ng-template #noData>
+            <img src="../../assets/loader.gif"/>
+        </ng-template>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+
+<!--
+<div [style.width.px]="starWidth" class="crop"   (click)="onStar()">
+    <div style="width:90px">
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+    </div>
+</div>
+-->
+
+
+<div class="star-rating crop" (click)="onStar()">
+<div class="back-stars" >
+  <i class="glyphicon glyphicon-star"></i>
+  <i class="glyphicon glyphicon-star"></i>
+  <i class="glyphicon glyphicon-star"></i>
+  <i class="glyphicon glyphicon-star"></i>
+  <i class="glyphicon glyphicon-star"></i>
+
+  <div class="front-stars" [style.width]="starWidth+'%'">
+      <i class="glyphicon glyphicon-star"></i>
+      <i class="glyphicon glyphicon-star"></i>
+      <i class="glyphicon glyphicon-star"></i>
+      <i class="glyphicon glyphicon-star"></i>
+      <i class="glyphicon glyphicon-star"></i>
+  </div>
+</div>
+</div>
+
+

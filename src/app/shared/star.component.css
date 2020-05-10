@@ -1,0 +1,27 @@
+
+
+.crop{
+  overflow: hidden;
+}
+
+
+.star-rating {
+  display: flex;
+
+
+}
+.back-stars {
+  display: flex;
+  color: #bb5252;
+  position: relative;
+
+}
+.front-stars {
+  display: flex;
+  color: #FFBC0B;
+  overflow: hidden;
+  position: absolute;
+
+
+}
+
